@@ -1,4 +1,4 @@
-from pyteal import *
+ from pyteal import *
 
 class Ballot(TealType):
     candidate_names = [C"dk", C"nirman", C"Chandu", C"laado-muji"]
