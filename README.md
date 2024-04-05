@@ -6,7 +6,6 @@ class Ballot(TealType):
 class VotingContract(TealProgram):
     candidates = GlobalSlot(0)
     votes = GlobalSlot(1)
-
     def __init__(self):
         super().__init__()
         self.candidates = Ballot.candidate_names
@@ -39,8 +38,7 @@ class VotingContract(TealProgram):
                 )
             )
             self.revert()
-
-        with self.Section("init") as s:
+          with self.Section("init") as s:
             self.candidates = self.candidates.write(self.candidates.read())
             self.votes = self.votes.write(self.candidates.length().int())
 
