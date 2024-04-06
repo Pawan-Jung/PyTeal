@@ -9,8 +9,7 @@ class VotingContract(TealProgram):
     def __init__(self):
         super().__init__()
         self.candidates = Ballot.candidate_names
-
-        with self.Subroutine("get_candidate_index", TealType.uint64) as subroutine:
+       with self.Subroutine("get_candidate_index", TealType.uint64) as subroutine:
             candidate_name = self.arg(0)
             index = ScratchVar(TealType.uint64)
             self.if_(candidate_name == self.candidates[0]).then(
@@ -53,8 +52,7 @@ class VotingContract(TealProgram):
             self.if_(caller != admin).then(
                 self.revert()
             )
-
-        with self.Global("vote") as s:
+            with self.Global("vote") as s:
             self.if_(self.block_height() > self.global_get(Int(0))).then(
                 self.seq(
                     self.check_admin(),
