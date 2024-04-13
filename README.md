@@ -7,7 +7,7 @@ class VotingContract(TealProgram):
     candidates = GlobalSlot(0)
     votes = GlobalSlot(1)
     def __init__(self):
-        super().__init__()
+        super().__init__() 
         self.candidates = Ballot.candidate_names
        with self.Subroutine("get_candidate_index", TealType.uint64) as subroutine:
             candidate_name = self.arg(0)
