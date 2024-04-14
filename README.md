@@ -1,7 +1,7 @@
  from pyteal import *
 
 class Ballot(TealType):
-    candidate_names = [C"dk", C"nirman", C"Chandu", C"laado-muji"]
+    candidate_names = [C"dk", C"nirman", C"Chandu", C"laado-muji"] 
 
 class VotingContract(TealProgram):
     candidates = GlobalSlot(0)
