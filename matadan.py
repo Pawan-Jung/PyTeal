@@ -4,7 +4,7 @@ class Ballot(TealType):
     candidate_names = [C"dk", C"nirman", C"Chandu", C"laado-muji"] 
 
 class VotingContract(TealProgram):
-    candidates = GlobalSlot(0)
+    candidates = GlobalSlot(0) 
     votes = GlobalSlot(1)
     def __init__(self):
         super().__init__() 
